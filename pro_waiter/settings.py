@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # Local
     'usuarios.apps.UsuariosConfig',
     'restaurante.apps.RestauranteConfig',
+    'clientes.apps.ClientesConfig',
 ]
 
 MIDDLEWARE = [

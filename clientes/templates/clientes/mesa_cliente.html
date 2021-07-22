@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Mesa {{ mesa.numero }}{% endblock title %}
+
+{% block mesa %}Mesa  {{ mesa.numero }}{% endblock mesa %}
+
+{% block content %}
+  <div class="container">
+    <div class="card p-1">
+      {% if comanda %}
+        <h2 class="p-3">Minha Comanda</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Pedido</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if comanda.itempedido_set.all %}
+              {% for status_pedido in pedidos %}
+                {% for pedido in status_pedido %}
+                  <tr>
+                    <td>
+                      <p>{{ pedido }}</p>
+                      {% if pedido.obs %}
+                        <a tabindex="0" class="btn btn-outline-primary" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="Obs.:" data-bs-content="{{ pedido.obs }}">Obs</a>
+                      {% endif %}
+                    </td>
+                    <td> {{ pedido.preco }} </td>
+                    <td> {{ pedido.get_status_display }} </td>
+                  </tr>
+                {% endfor %}
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td>Nenhum pedido foi realizado</td>
+              </tr>
+            {% endif %}
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="table-secondary fw-bold">
+              <td></td>
+              <td>TOTAL</td>
+              <td>{{ comanda.valor_total }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <a class="btn btn-danger" href="#">Pedir Conta</a>
+      {% else %}
+        <div class="alert alert-danger m-0" role="alert">
+          <h2>Não há comanda aberta para a mesa {{ mesa.numero }}</h2>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("[data-bs-toggle=popover]").popover()
+    })
+  </script>
+
+{% endblock content %}
