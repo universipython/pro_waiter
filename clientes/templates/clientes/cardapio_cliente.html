@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block meta %}
+  <link rel="stylesheet" href="{% static 'css/cardapio_cliente.css' %}">
+{% endblock meta %}
+
+{% block title %}
+  Mesa {{ mesa.numero }} | Cardápio
+{% endblock title %}
+
+{% block mesa-cliente-url %}
+  <a href="{{ mesa.get_absolute_url }}"><i class="fas fa-home fa-2x"></i></a>
+{% endblock mesa-cliente-url %}
+
+{% block cardapio-cliente-url %}
+  <a class="btn btn-dark mb-2" href="{{ mesa.get_menu_url }}">Ver Cardápio</a>
+{% endblock cardapio-cliente-url %}
+
+{% block mesa %}
+  Mesa {{ mesa.numero }}
+{% endblock mesa %}
+
+{% block content %}
+  <div class="container">
+    <div class="card p-3">
+      <div class="titulo-card">
+        <i class="fas fa-book-open fa-2x"></i>
+        <h1>Cardápio</h1>
+      </div>
+      {% for categoria in categorias %}
+        <a class="categoria" data-bs-toggle="collapse" href="#c-{{ categoria.id }}" role="button" aria-expanded="false" aria-controls="c-{{ categoria.id }}">
+          <h5>{{ categoria }}</h5>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <div class="collapse" id="c-{{ categoria.id }}">
+          {% for item in categoria.itemcardapio_set.all %}
+            {% if item.ativo %}
+              <div class="item-cardapio">
+                <div class="titulo-preco">
+                  <p class="item-titulo">{{ item }}</p>
+                  <p><span class="item-valor">R${{ item.preco }}</span></p>
+                </div>
+                {% if item.descricao %}
+                  <p> {{ item.descricao }} </p>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endfor %}
+      {% if itens_sem_categoria %}
+        <a class="categoria" data-bs-toggle="collapse" href="#sem-categoria" role="button" aria-expanded="false" aria-controls="sem-categoria">
+          <h5>Itens sem categoria</h5>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        <div class="collapse" id="sem-categoria">
+          {% for item in itens_sem_categoria %}
+            {% if item.ativo %}
+              <div class="item-cardapio">
+                <div class="titulo-preco">
+                  <p class="item-titulo">{{ item }}</p>
+                  <p><span class="item-valor">R${{ item.preco }}</span></p>
+                </div>
+                {% if item.descricao %}
+                  <p> {{ item.descricao }} </p>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".categoria").click(function() {
+        $("i", this).toggleClass("fa-chevron-right fa-chevron-down");
+        $(this).toggleClass("clicado");
+      })
+    })
+  </script>
+
+
+
+
+{% endblock content %}

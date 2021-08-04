@@ -17,6 +17,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block meta %}
+    {% endblock meta %}
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +30,7 @@
   <body>
     <header>
       <div class="header-container">
-        <a href="#"><i class="fas fa-home fa-2x"></i></a>
+        {% block mesa-cliente-url %}{% endblock %}
         <h2>{% block mesa %}{% endblock mesa %}</h2>
       </div>
     </header>
@@ -46,7 +48,7 @@
       <nav class="navbar fixed-bottom navbar-light bg-light" >
         <div class="container d-flex flex-column align-items-stretch">
           <a class="btn btn-dark mb-2" href="#">Solicitar Atendimento</a>
-          <a class="btn btn-dark mb-2" href="#">Ver Cardápio</a>
+          {% block cardapio-cliente-url %}{% endblock %}
         </div>
       </nav>
     </footer>

@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.crypto import get_random_string
 from django.utils import timezone
+from django.urls import reverse
 
 
 # Create your models here.
@@ -27,6 +28,12 @@ class Mesa(models.Model):
                     slug_is_wrong = True
                 if slug_is_wrong:
                     self.slug = get_random_string(8)
+
+    def get_absolute_url(self):
+        return reverse('mesa-cliente', args=[self.slug])
+
+    def get_menu_url(self):
+        return reverse('cardapio-cliente', args=[self.slug])
 
 
 class Comanda(models.Model):

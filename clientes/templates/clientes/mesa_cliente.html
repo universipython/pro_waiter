@@ -2,6 +2,14 @@
 
 {% block title %}Mesa {{ mesa.numero }}{% endblock title %}
 
+{% block mesa-cliente-url %}
+  <a href="{{ mesa.get_absolute_url }}"><i class="fas fa-home fa-2x"></i></a>
+{% endblock mesa-cliente-url %}
+
+{% block cardapio-cliente-url %}
+  <a class="btn btn-dark mb-2" href="{{ mesa.get_menu_url }}">Ver Cardápio</a>
+{% endblock cardapio-cliente-url %}
+
 {% block mesa %}Mesa  {{ mesa.numero }}{% endblock mesa %}
 
 {% block content %}

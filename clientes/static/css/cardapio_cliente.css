@@ -1,0 +1,85 @@
+
+.card {
+  box-shadow: 5px 5px 10px #888888;
+}
+
+.titulo-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #cfcfcf;
+  margin-bottom: 20px;
+}
+
+.titulo-card h1 {
+  margin: 0;
+}
+
+.titulo-card i {
+  margin-right: 15px;
+}
+
+.categoria {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #cfcfcf;
+  border-radius: 10px;
+  box-shadow: 0 2px 3px #cfcfcf;
+}
+
+.categoria h5 {
+  max-width: 95%;
+  word-wrap: break-word;
+}
+
+.categoria:hover {
+  color: black;
+}
+
+.item-cardapio {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: strech;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 5px;
+  padding: 15px;
+  border: 1px solid #f5d3d3;
+  border-radius: 10px;
+}
+
+.item-cardapio .titulo-preco {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  word-wrap: break-all;
+}
+
+.item-cardapio .titulo-preco p {
+  max-width: 100%;
+}
+
+.item-valor {
+  background: #ff2e2e;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.item-titulo {
+  font-size: 1.2rem;
+}
+
+.clicado {
+  color: black;
+  background: #f0f0f0;
+}
