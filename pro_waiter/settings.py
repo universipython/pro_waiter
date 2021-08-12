@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'usuarios.apps.UsuariosConfig',
     'restaurante.apps.RestauranteConfig',
     'clientes.apps.ClientesConfig',
+    'garcom.apps.GarcomConfig',
 ]
 
 MIDDLEWARE = [

@@ -47,7 +47,7 @@
     <footer>
       <nav class="navbar fixed-bottom navbar-light bg-light" >
         <div class="container d-flex flex-column align-items-stretch">
-          <a class="btn btn-dark mb-2" href="#">Solicitar Atendimento</a>
+          {% block solicita-atendimento-url %}{% endblock %}
           {% block cardapio-cliente-url %}{% endblock %}
         </div>
       </nav>

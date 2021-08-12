@@ -18,6 +18,10 @@
   <a class="btn btn-dark mb-2" href="{{ mesa.get_menu_url }}">Ver Cardápio</a>
 {% endblock cardapio-cliente-url %}
 
+{% block solicita-atendimento-url %}
+  <a class="btn btn-dark mb-2" href="{% url 'solicita-atendimento' mesa.slug %}">Solicitar Atendimento</a>
+{% endblock %}
+
 {% block mesa %}
   Mesa {{ mesa.numero }}
 {% endblock mesa %}

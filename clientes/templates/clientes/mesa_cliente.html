@@ -10,6 +10,10 @@
   <a class="btn btn-dark mb-2" href="{{ mesa.get_menu_url }}">Ver Cardápio</a>
 {% endblock cardapio-cliente-url %}
 
+{% block solicita-atendimento-url %}
+  <a class="btn btn-dark mb-2" href="{% url 'solicita-atendimento' mesa.slug %}">Solicitar Atendimento</a>
+{% endblock %}
+
 {% block mesa %}Mesa  {{ mesa.numero }}{% endblock mesa %}
 
 {% block content %}
@@ -58,7 +62,7 @@
             </tr>
           </tbody>
         </table>
-        <a class="btn btn-danger" href="#">Pedir Conta</a>
+        <a class="btn btn-danger" href="{% url 'solicita-fechamento' mesa.slug %}">Pedir Conta</a>
       {% else %}
         <div class="alert alert-danger m-0" role="alert">
           <h2>Não há comanda aberta para a mesa {{ mesa.numero }}</h2>

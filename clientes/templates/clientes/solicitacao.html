@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+
+{% endblock meta %}
+
+{% block title %}
+  Solicitação | {{ mesa }}
+{% endblock title %}
+
+{% block mesa-cliente-url %}
+  <a href="{{ mesa.get_absolute_url }}"><i class="fas fa-home fa-2x"></i></a>
+{% endblock mesa-cliente-url %}
+
+{% block cardapio-cliente-url %}
+  <a class="btn btn-dark mb-2" href="{{ mesa.get_menu_url }}">Ver Cardápio</a>
+{% endblock cardapio-cliente-url %}
+
+{% block solicita-atendimento-url %}
+  <a class="btn btn-dark mb-2" href="{% url 'solicita-atendimento' mesa.slug %}">Solicitar Atendimento</a>
+{% endblock %}
+
+{% block mesa %}
+  {{ mesa }}
+{% endblock mesa %}
+
+{% block content %}
+  <div class="container">
+    <div class="card p-1">
+      <div class="alert alert-success m-0" role="alert">
+        <h4 class="alert-heading">Solicitação confirmada</h4>
+        <p>
+          Sua solicitação de <b>{{ tarefa.get_tipo_display|lower }}</b> foi
+          registrada com sucesso. Em breve, um de nossos garçons irá te atender.
+        </p>
+        <hr>
+        <p class="mb-0">Voltar para <a href="{{ mesa.get_absolute_url }}">página inicial</a>.</p>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
