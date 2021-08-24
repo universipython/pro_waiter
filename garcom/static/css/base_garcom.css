@@ -1,0 +1,120 @@
+/* garcom/static/css/base_garcom.css */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6rem;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header-bg {
+  background: red;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin-top: 0px;
+  z-index: 10;
+
+}
+
+.header-container {
+  max-width: 90%;
+  margin: auto;
+  padding: 0.7rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-container #refresh {
+  color: white;
+  font-size: 1.6rem;
+}
+
+.header-container #refresh:hover {
+  font-size: 1.8rem;
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-info .logo {
+  display: flex;
+}
+
+.header-info .logo img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.header-info .logo h1 {
+  padding-top: 5px;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.header-info p {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.header-info a {
+  color: white;
+}
+
+.header-info a:hover{
+  font-size: 1.3rem;
+}
+
+.footer-bg {
+  background: #e0e0e0;
+  padding-left: 5px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}
+
+.footer-nav ul{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: auto;
+}
+
+.footer-nav ul li {
+  padding: 1rem 0.5rem;
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid #ccc;
+}
+
+.footer-nav ul li a {
+  color: black;
+  font-size: 0.9rem;
+  height: 100%;
+}
+.footer-nav ul li a:hover{
+  color: white;
+}
+.footer-nav ul li:hover {
+  background: #555;
+}

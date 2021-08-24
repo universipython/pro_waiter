@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 
-from restaurante.models import Mesa
+from restaurante.models import Mesa, ItemPedido
 
 class Tarefa(models.Model):
 
@@ -35,3 +35,8 @@ class Tarefa(models.Model):
         self.status = 'concluido'
         self.hr_atendimento = timezone.now()
         self.save()
+
+
+class Entrega(models.Model):
+    pedido = models.OneToOneField(ItemPedido, on_delete=models.CASCADE)
+    tarefa = models.ForeignKey(Tarefa, on_delete=models.CASCADE)

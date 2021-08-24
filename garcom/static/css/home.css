@@ -1,0 +1,72 @@
+/* garcom/static/css/home.css */
+.tipo-task {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(179, 176, 176);
+    margin-top: 15px;
+    padding-bottom: 5px;
+}
+
+.tarefas a{
+  color: black;
+  margin-bottom: 0;
+}
+
+
+.p-task {
+    width: 50%;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.num-pendencias {
+    background-color: red;
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+#sem-pendencia {
+    background-color: #08bf1a;
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.grupo {
+    width: 90%;
+    margin: 0 auto 20px;
+}
+
+.grupo .list-group-item {
+  font-size: 1.2rem;
+  color: black;
+}
+
+.grupo a{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.grupo a p {
+  padding-top: 3px;
+  margin: 3px;
+  display: block;
+  max-width: 65%;
+  word-wrap: break-word;
+}
+
+.grupo a .indica-mesa {
+  background: #4272f5;
+  border-radius: 3px;
+  color: white;
+  padding: 5px;
+}

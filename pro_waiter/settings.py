@@ -138,4 +138,4 @@ AUTH_USER_MODEL = 'usuarios.Usuario'
 # Crispy Forms Config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'painel_garcom'
+LOGIN_REDIRECT_URL = 'painel'

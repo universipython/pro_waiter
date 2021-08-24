@@ -1,0 +1,109 @@
+{% extends 'base_garcom.html' %}
+{% load static %}
+
+{% block meta %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock meta %}
+
+{% block title %}
+  Home Painel
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-3 mb-4 border-bottom">
+    <h1>Tarefas Pendentes</h1>
+  </div>
+
+  <div id="tarefas-pendentes" class="container mt-3 tarefas">
+    <a class="tipo-task" data-bs-toggle="collapse" href="#grupo-entregas" role="button" aria-expanded="false" aria-controls="example">
+        <p class="p-task">Entregas</p>
+        {% if entregas.count %}
+          <p class="num-pendencias">{{ entregas.count }}</p>
+        {% else %}
+          <p id="sem-pendencia"><i class="fas fa-check-circle"></i></p>
+        {% endif %}
+        <i class="fas fa-chevron-right"></i>
+    </a>
+
+    <div id="grupo-entregas" class="grupo list-group collapse">
+      {% for entrega in entregas %}
+        <a href="#" class="list-group-item list-group-item-action">
+          <p>{{ entrega.pedido }}</p>
+          <p class="indica-mesa"> Mesa {{ entrega.mesa }}</p>
+        </a>
+      {% empty %}
+        <li class="list-group-item list-group-item-action">
+          <p>Não há entregas pendentes.</p>
+        </li>
+      {% endfor %}
+    </div>
+
+    <a class="tipo-task" data-bs-toggle="collapse" href="#grupo-atendimento" role="button" aria-expanded="false" aria-controls="example">
+        <p class="p-task">Atendimentos</p>
+        {% if qtdd_atendimentos %}
+          <p class="num-pendencias">{{ qtdd_atendimentos }}</p>
+        {% else %}
+          <p id="sem-pendencia"><i class="fas fa-check-circle"></i></p>
+        {% endif %}
+        <i class="fas fa-chevron-right"></i>
+    </a>
+
+    <div id="grupo-atendimento" class="grupo list-group collapse">
+      {% for prim_atendimento in prim_atendimentos %}
+        <a href="#" class="list-group-item list-group-item-action">
+          <p>Primeiro atendimento</p>
+          <p class="indica-mesa"> {{ prim_atendimento.mesa }}</p>
+        </a>
+      {% endfor %}
+      {% for atendimento in atendimentos %}
+        <a href="#" class="list-group-item list-group-item-action">
+          <p>Atendimento</p>
+          <p class="indica-mesa"> {{ atendimento.mesa }}</p>
+        </a>
+      {% empty %}
+        <li class="list-group-item list-group-item-action">
+          <p>Não há atendimentos pendentes.</p>
+        </li>
+      {% endfor %}
+    </div>
+
+    <a class="tipo-task" data-bs-toggle="collapse" href="#grupo-fechamentos" role="button" aria-expanded="false" aria-controls="example">
+        <p class="p-task">Fechamentos</p>
+        {% if fechamentos.count %}
+          <p class="num-pendencias">{{ fechamentos.count }}</p>
+        {% else %}
+          <p id="sem-pendencia"><i class="fas fa-check-circle"></i></p>
+        {% endif %}
+        <i class="fas fa-chevron-right"></i>
+    </a>
+
+    <div id="grupo-fechamentos" class="grupo list-group collapse">
+      {% for fechamento in fechamentos %}
+        <a href="#" class="list-group-item list-group-item-action">
+          <p>Fechamento</p>
+          <p class="indica-mesa"> {{ fechamento.mesa }}</p>
+        </a>
+      {% empty %}
+        <li class="list-group-item list-group-item-action">
+          <p>Não há fechamentos pendentes.</p>
+        </li>
+      {% endfor %}
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("a").click(function() {
+        $('i', this).not('.fa-check-circle').toggleClass('fa-chevron-right fa-chevron-down');
+      });
+      $('#refresh').click(function() {
+        document.location.reload(true);
+      });
+      $('.num-pendencias').ready(function() {
+        if (this.innerHTML === "0") {
+          console.log("oi")
+        }
+      })
+    });
+  </script>
+{% endblock content %}
